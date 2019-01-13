@@ -30,4 +30,9 @@ setup(
     url=about['__url__'],
     install_requires=requires,
     packages=find_packages(),
+    classifiers=[
+            "Programming Language :: Python :: 3",
+            "License :: OSI Approved :: MIT License",
+            "Operating System :: OS Independent",
+        ],
 )
