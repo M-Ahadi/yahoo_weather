@@ -11,7 +11,7 @@ from yahoo_weather.classes.wind import Wind
 from yahoo_weather.config.units import Unit
 
 
-class yahoo_weather:
+class Yahoo_Weather:
     def __init__(self, APP_ID, apikey, apisecret):
         self.APP_ID = APP_ID
         self.apikey = apikey
