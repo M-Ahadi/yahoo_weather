@@ -1,4 +1,4 @@
-# New Yahoo Weather API
+# Python Library for Yahoo Weather New API
 Since 3,Jan 2019 yahoo has changed its Weather API with Oauth1 Authentication. This new method has added an authentication to use the API. This library helps you to handle the new API.
 In order to use the new API you have to get API key from [YAHOO](https://developer.yahoo.com/weather/?guccounter=1)
 
