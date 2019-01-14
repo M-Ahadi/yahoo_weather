@@ -42,7 +42,7 @@ class Yahoo_Weather:
                 forecasts = result.get("forecasts")
 
                 self.location = Location.load_from_json(loc)
-                self.pubDate = current_observation.get("pubDate")
+                pubDate = current_observation.get("pubDate")
                 self.astronomy = Astronomy.load_from_json(astronomy)
                 self.atmosphere = Atmosphere.load_from_json(atmosphere)
                 self.condition = Condition.load_from_json(condition)
@@ -55,7 +55,7 @@ class Yahoo_Weather:
                 self.current_observation = Current_Observation(astronomy=self.astronomy,
                                                                atmosphere=self.atmosphere,
                                                                condition=self.condition,
-                                                               pubDate=self.pubDate,
+                                                               pubDate=pubDate,
                                                                wind=self.wind)
 
                 return Current_Weather(current_observation=self.current_observation,
@@ -82,9 +82,6 @@ class Yahoo_Weather:
 
     def get_astronomy(self):
         return self.astronomy
-
-    def get_pubDate(self):
-        return self.pubDate
 
     def get_current_observation(self):
         return self.current_observation
