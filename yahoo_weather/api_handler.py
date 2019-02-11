@@ -3,15 +3,15 @@ import time
 import oauth2 as oauth
 import requests
 
-from config.config import yahoo
-from config.units import Unit
+from yahoo_weather.config.config import yahoo
+from yahoo_weather.config.units import Unit
 
 
-def _get_city_url(API_param, city, unit=Unit.celsius):
+def get_city_url(API_param, city, unit=Unit.celsius):
     return oauth.Request(method="GET", url=yahoo.url_city.format(city=city, unit=unit), parameters=_get_parameters(API_param))
 
 
-def _get_location_url(API_param, lat, long, unit=Unit.celsius):
+def get_location_url(API_param, lat, long, unit=Unit.celsius):
     return oauth.Request(method="GET", url=yahoo.url_location.format(lat=lat, lon=long, unit=unit), parameters=_get_parameters(API_param))
 
 

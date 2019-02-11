@@ -1,5 +1,5 @@
 import json as json_handler
-from classes.errors import Error
+from yahoo_weather.classes.errors import Error
 
 
 class Condition:

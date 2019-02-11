@@ -1,14 +1,14 @@
-from api_handler import request_api, _get_city_url, _get_location_url
-from classes.API_param import yahoo_API_parameters
-from classes.atmosphere import Atmosphere
-from classes.astronomy import Astronomy
-from classes.condition import Condition
-from classes.current_observation import Current_Observation
-from classes.current_weather import Current_Weather
-from classes.forecasts import Forecasts
-from classes.location import Location
-from classes.wind import Wind
-from config.units import Unit
+from yahoo_weather.api_handler import request_api, get_city_url, get_location_url
+from yahoo_weather.classes.API_param import yahoo_API_parameters
+from yahoo_weather.classes.atmosphere import Atmosphere
+from yahoo_weather.classes.astronomy import Astronomy
+from yahoo_weather.classes.condition import Condition
+from yahoo_weather.classes.current_observation import Current_Observation
+from yahoo_weather.classes.current_weather import Current_Weather
+from yahoo_weather.classes.forecasts import Forecasts
+from yahoo_weather.classes.location import Location
+from yahoo_weather.classes.wind import Wind
+from yahoo_weather.config.units import Unit
 
 
 class YahooWeather:
@@ -19,13 +19,11 @@ class YahooWeather:
         self.api_param = yahoo_API_parameters(APP_ID, apikey, apisecret)
 
     def get_yahoo_weather_by_city(self, city, unit=Unit.celsius):
-        req = _get_city_url(self.api_param, city, unit)
-        # Create our request. Change method, etc. accordingly.
-        self._get_yahoo_data(req)
+        req = get_city_url(self.api_param, city, unit)
+        return self._get_yahoo_data(req)
 
     def get_yahoo_weather_by_location(self, lat, long, unit=Unit.celsius):
-        req = _get_location_url(self.api_param, lat, long, unit)
-        # Create our request. Change method, etc. accordingly.
+        req = get_location_url(self.api_param, lat, long, unit)
         return self._get_yahoo_data(req)
 
     def _get_yahoo_data(self, req):
@@ -61,6 +59,8 @@ class YahooWeather:
                 return Current_Weather(current_observation=self.current_observation,
                                        forecasts=self.forecasts,
                                        location=self.location)
+            else:
+                print(api_result.text)
         except Exception as e:
             print(e)
         return None
