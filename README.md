@@ -5,7 +5,7 @@ In order to use the new API you have to get API key from [YAHOO](https://develop
 
 ```
 from yahoo_weather import yahoo_weather
-from config.units import Unit
+from yahoo_weather.config.units import Unit
 
 data = Yahoo_Weather(APP_ID="Your App ID",
                      apikey="Your API KEY",
