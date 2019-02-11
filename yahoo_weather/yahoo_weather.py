@@ -1,17 +1,17 @@
-from yahoo_weather.api_handler import request_api, _get_city_url, _get_location_url
-from yahoo_weather.classes.API_param import yahoo_API_parameters
-from yahoo_weather.classes.atmosphere import Atmosphere
-from yahoo_weather.classes.astronomy import Astronomy
-from yahoo_weather.classes.condition import Condition
-from yahoo_weather.classes.current_observation import Current_Observation
-from yahoo_weather.classes.current_weather import Current_Weather
-from yahoo_weather.classes.forecasts import Forecasts
-from yahoo_weather.classes.location import Location
-from yahoo_weather.classes.wind import Wind
-from yahoo_weather.config.units import Unit
+from api_handler import request_api, _get_city_url, _get_location_url
+from classes.API_param import yahoo_API_parameters
+from classes.atmosphere import Atmosphere
+from classes.astronomy import Astronomy
+from classes.condition import Condition
+from classes.current_observation import Current_Observation
+from classes.current_weather import Current_Weather
+from classes.forecasts import Forecasts
+from classes.location import Location
+from classes.wind import Wind
+from config.units import Unit
 
 
-class Yahoo_Weather:
+class YahooWeather:
     def __init__(self, APP_ID, apikey, apisecret):
         self.APP_ID = APP_ID
         self.apikey = apikey

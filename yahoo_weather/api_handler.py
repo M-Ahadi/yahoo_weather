@@ -3,8 +3,8 @@ import time
 import oauth2 as oauth
 import requests
 
-from yahoo_weather.config.config import yahoo
-from yahoo_weather.config.units import Unit
+from config.config import yahoo
+from config.units import Unit
 
 
 def _get_city_url(API_param, city, unit=Unit.celsius):
