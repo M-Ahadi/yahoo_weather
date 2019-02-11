@@ -1,7 +1,7 @@
 import datetime
 import json as json_handler
 
-from yahoo_weather.classes.errors import Error
+from classes.errors import Error
 
 
 class Forecasts:

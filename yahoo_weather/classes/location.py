@@ -1,10 +1,11 @@
 import json as json_handler
 
-from yahoo_weather.classes.errors import Error
+from classes.errors import Error
 
 
 class Location:
-    def __init__(self, city, country, lat, long, region, timezone_id):
+    def __init__(self,woeid, city, country, lat, long, region, timezone_id):
+        self.woeid = woeid
         self.city = city
         self.country = country
         self.lat = lat
@@ -24,6 +25,7 @@ class Location:
         else:
             raise ValueError(Error.unacceptable_json)
 
+        woeid = json_dict.get("woeid")
         city = json_dict.get("city")
         country = json_dict.get("country")
         lat = json_dict.get("lat")
@@ -31,4 +33,4 @@ class Location:
         region = json_dict.get("region")
         timezone_id = json_dict.get("timezone_id")
 
-        return cls(city=city, country=country, lat=lat, long=long, region=region, timezone_id=timezone_id)
+        return cls(woeid=woeid, city=city, country=country, lat=lat, long=long, region=region, timezone_id=timezone_id)
