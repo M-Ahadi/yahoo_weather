@@ -20,11 +20,11 @@ class YahooWeather:
 
     def get_yahoo_weather_by_city(self, city, unit=Unit.celsius):
         req = get_city_url(self.api_param, city, unit)
-        return self._get_yahoo_data(req)
+        self._get_yahoo_data(req)
 
     def get_yahoo_weather_by_location(self, lat, long, unit=Unit.celsius):
         req = get_location_url(self.api_param, lat, long, unit)
-        return self._get_yahoo_data(req)
+        self._get_yahoo_data(req)
 
     def _get_yahoo_data(self, req):
         try:
@@ -56,9 +56,10 @@ class YahooWeather:
                                                                pubDate=pubDate,
                                                                wind=self.wind)
 
-                return Current_Weather(current_observation=self.current_observation,
+                self.current_weather = Current_Weather(current_observation=self.current_observation,
                                        forecasts=self.forecasts,
                                        location=self.location)
+                return Current_Weather
             else:
                 print(api_result.text)
         except Exception as e:
