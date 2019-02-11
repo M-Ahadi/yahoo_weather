@@ -20,11 +20,11 @@ class YahooWeather:
 
     def get_yahoo_weather_by_city(self, city, unit=Unit.celsius):
         req = get_city_url(self.api_param, city, unit)
-        self._get_yahoo_data(req)
+        return self._get_yahoo_data(req)
 
     def get_yahoo_weather_by_location(self, lat, long, unit=Unit.celsius):
         req = get_location_url(self.api_param, lat, long, unit)
-        self._get_yahoo_data(req)
+        return self._get_yahoo_data(req)
 
     def _get_yahoo_data(self, req):
         try:
