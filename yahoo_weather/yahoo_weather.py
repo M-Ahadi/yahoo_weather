@@ -57,14 +57,13 @@ class YahooWeather:
                                                                wind=self.wind)
 
                 self.current_weather = Current_Weather(current_observation=self.current_observation,
-                                       forecasts=self.forecasts,
-                                       location=self.location)
-                return Current_Weather
+                                                       forecasts=self.forecasts,
+                                                       location=self.location)
+                return self.current_weather
             else:
                 print(api_result.text)
         except Exception as e:
             print(e)
-        return None
 
     def get_location(self):
         return self.location
