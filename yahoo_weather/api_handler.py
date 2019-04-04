@@ -24,12 +24,12 @@ def _get_parameters(API_param):
         'oauth_signature_method': "HMAC-SHA1",
         'oauth_version': "1.0",
         'oauth_nonce': oauth.generate_nonce(),
-        'oauth_consumer_key': API_param.apikey
+        'oauth_consumer_key': API_param.api_key
     }
 
 def _get_consumer(API_param):
     # Setup the Consumer with the api_keys given by the provider
-    return oauth.Consumer(key=API_param.apikey, secret=API_param.apisecret)
+    return oauth.Consumer(key=API_param.api_key, secret=API_param.api_secret)
 
 
 def request_api(req,API_param):

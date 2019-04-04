@@ -1,5 +1,5 @@
 class yahoo_API_parameters:
-    def __init__(self,APP_ID,apikey,apisecret):
+    def __init__(self, APP_ID, api_key, api_secret):
         self.APP_ID = APP_ID
-        self.apikey = apikey
-        self.apisecret = apisecret
+        self.api_key = api_key
+        self.api_secret = api_secret

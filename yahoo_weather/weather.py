@@ -12,11 +12,11 @@ from yahoo_weather.config.units import Unit
 
 
 class YahooWeather:
-    def __init__(self, APP_ID, apikey, apisecret):
+    def __init__(self, APP_ID, api_key, api_secret):
         self.APP_ID = APP_ID
-        self.apikey = apikey
-        self.apisecret = apisecret
-        self.api_param = yahoo_API_parameters(APP_ID, apikey, apisecret)
+        self.apikey = api_key
+        self.api_secret = api_secret
+        self.api_param = yahoo_API_parameters(APP_ID, api_key, api_secret)
 
     def get_yahoo_weather_by_city(self, city, unit=Unit.celsius):
         req = get_city_url(self.api_param, city, unit)
@@ -47,8 +47,8 @@ class YahooWeather:
                 self.wind = Wind.load_from_json(wind)
                 self.forecasts = []
 
-                for forcast in forecasts:
-                    self.forecasts.append(Forecasts.load_from_json(forcast))
+                for forecast in forecasts:
+                    self.forecasts.append(Forecasts.load_from_json(forecast))
 
                 self.current_observation = Current_Observation(astronomy=self.astronomy,
                                                                atmosphere=self.atmosphere,
