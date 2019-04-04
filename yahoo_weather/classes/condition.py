@@ -18,7 +18,7 @@ class Condition:
         elif isinstance(json, str):
             json_dict = json_handler.loads(json)
         else:
-            raise ValueError(Error.unacceptable_json)
+            raise ValueError("{}: {} : {}".format("Condition", Error.unacceptable_json, json))
 
         code = json_dict.get("code")
         temperature = json_dict.get("temperature")

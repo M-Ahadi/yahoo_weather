@@ -23,7 +23,7 @@ class Location:
         elif isinstance(json, str):
             json_dict = json_handler.loads(json)
         else:
-            raise ValueError(Error.unacceptable_json)
+            raise ValueError("{}: {} : {}".format("Location", Error.unacceptable_json, json))
 
         woeid = json_dict.get("woeid")
         city = json_dict.get("city")

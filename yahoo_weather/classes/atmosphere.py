@@ -19,7 +19,7 @@ class Atmosphere:
         elif isinstance(json, str):
             json_dict = json_handler.loads(json)
         else:
-            raise ValueError(Error.unacceptable_json)
+            raise ValueError("{}: {} : {}".format("Atmosphere",Error.unacceptable_json,json))
 
         humidity = json_dict.get("humidity")
         pressure = json_dict.get("pressure")

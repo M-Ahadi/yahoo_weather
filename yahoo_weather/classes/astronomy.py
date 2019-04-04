@@ -17,7 +17,7 @@ class Astronomy:
         elif isinstance(json, str):
             json_dict = json_handler.loads(json)
         else:
-            raise ValueError(Error.unacceptable_json)
+            raise ValueError("{}: {} : {}".format("Astronomy", Error.unacceptable_json, json))
 
         sunrise = json_dict.get("sunrise")
         sunset = json_dict.get("sunset")

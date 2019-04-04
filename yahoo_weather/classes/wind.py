@@ -19,7 +19,7 @@ class Wind:
         elif isinstance(json, str):
             json_dict = json_handler.loads(json)
         else:
-            raise ValueError(Error.unacceptable_json)
+            raise ValueError("{}: {} : {}".format("Wind", Error.unacceptable_json, json))
 
         chill = json_dict.get("chill")
         direction = json_dict.get("direction")
