@@ -13,9 +13,6 @@ from yahoo_weather.config.units import Unit
 
 class YahooWeather:
     def __init__(self, APP_ID, api_key, api_secret):
-        self.APP_ID = APP_ID
-        self.apikey = api_key
-        self.api_secret = api_secret
         self.api_param = yahoo_API_parameters(APP_ID, api_key, api_secret)
 
     def get_yahoo_weather_by_city(self, city, unit=Unit.celsius):
@@ -31,6 +28,8 @@ class YahooWeather:
             api_result = request_api(req, self.api_param)
             if api_result.status_code == 200:
                 result = api_result.json()
+                if not (result.get("location") and result.get("current_observation") and result.get("forecasts")):
+                    return None
                 loc = result.get("location")
                 current_observation = result.get("current_observation")
                 astronomy = current_observation.get("astronomy")
@@ -41,7 +40,7 @@ class YahooWeather:
 
                 self.location = Location.load_from_json(loc)
                 pubDate = current_observation.get("pubDate")
-                self.astronomy = Astronomy.load_from_json(astronomy)
+                self.astronomy = Astronomy.load_from_json(astronomy) or Astronomy("", "")
                 self.atmosphere = Atmosphere.load_from_json(atmosphere)
                 self.condition = Condition.load_from_json(condition)
                 self.wind = Wind.load_from_json(wind)
@@ -68,7 +67,7 @@ class YahooWeather:
     def get_location(self):
         return self.location
 
-    def get_forcasts(self):
+    def get_forecasts(self):
         return self.forecasts
 
     def get_wind(self):
