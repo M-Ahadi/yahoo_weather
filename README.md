@@ -7,15 +7,15 @@ In order to use the new API you have to get an API key from [Yahoo!](https://dev
 from yahoo_weather.weather import YahooWeather
 from yahoo_weather.config.units import Unit
 
-data = yahoo_weather.YahooWeather(APP_ID="Your App ID",
+data = YahooWeather(APP_ID="Your App ID",
                      api_key="Your API KEY",
                      api_secret="Your API secret")
                      
-weather.get_yahoo_weather_by_city("tehran", Unit.celsius)
-print(weather.condition.text)
-print(weather.condition.temperature)
+data.get_yahoo_weather_by_city("tehran", Unit.celsius)
+print(data.condition.text)
+print(data.condition.temperature)
 
-weather.get_yahoo_weather_by_location(35.67194, 51.424438)
-print(weather.condition.text)
-print(weather.condition.temperature)
+data.get_yahoo_weather_by_location(35.67194, 51.424438)
+print(data.condition.text)
+print(data.condition.temperature)
 ```
