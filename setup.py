@@ -5,13 +5,13 @@ from setuptools import find_packages, setup
 here = os.path.abspath(os.path.dirname(__file__))
 
 requires = [
-    'certifi==2018.11.29',
-    'chardet==3.0.4',
-    'httplib2==0.12.0',
-    'idna==2.8',
-    'oauth2==1.9.0.post1',
-    'requests==2.21.0',
-    'urllib3==1.24.1'
+    'certifi == 2019.3.9',
+    'chardet == 3.0.4',
+    'httplib2 == 0.12.1',
+    'idna == 2.8',
+    'oauth2 == 1.9.0.post1',
+    'requests == 2.21.0',
+    'urllib3 == 1.24.2'
 ]
 
 about = {}
